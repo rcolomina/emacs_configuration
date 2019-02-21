@@ -1,4 +1,5 @@
-# emacs_configuration
-Project to store and improve my personal emacs configuration file.
+# Emacs Configuration
 
-Many tricks and tips can be added to this configuration file, so I can improve my productivity.
+Project dedicated to store and improve emacs configuration files.
+
+Many tricks and tips can be used and added into an emacs configuration file, so it can improve your productivity.
