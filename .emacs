@@ -1,5 +1,5 @@
 ;; .emacs
- 
+
 ;;; uncomment this line to disable loading of "default.el" at startup
 ;; (setq inhibit-default-init t)
 
@@ -53,6 +53,7 @@
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
+
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -60,19 +61,29 @@
 )
 
 (package-initialize)
+
 (require 'cl)
 
+
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
+
+
+;;------ Aspecto Inicial -----------
+
+;(setenv "HOME" "d:\\NOTAS")
 
 (set-background-color "black")
 (set-foreground-color "white")
 (set-cursor-color "yellow")
 
-(tool-bar-mode -1) 
-(menu-bar-mode -1) 
-(scroll-bar-mode -1) 
+(tool-bar-mode -1) ;;quita las barra de herramienta
+(menu-bar-mode -1) ;;quita la barra del menu
+(scroll-bar-mode -1) ;;quita la barra de scroll
 
-(setq inhibit-startup-message t) 
+(setq inhibit-startup-message t) ;;quita el logo inicial
+
+;; -------- Rueda Raton ---------
 
 (defcustom mouse-wheel-distance 1
   "*Number of lines, maximum, to scroll the window when you move the mouse = wheel."
@@ -104,15 +115,19 @@
 (global-set-key [mouse-5] (function mouse-wheelscroll-up))
 
 
-(global-set-key "\C-l" 'goto-line)
-;(global-set-key "\C-g" 'goto-line)
-(global-set-key "\M-i" 'indented-text-mode)
+
+
+;; -------- Combinacions de teclas -----------
+;(global-set-key "\C-l" 'goto-line)
+(global-set-key "\C-g" 'goto-line)
+;;(global-set-key "\M-i" 'indented-text-mode)
 (global-set-key "\C-c\c" 'compile)
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-c" 'comment-region)
 (global-set-key "\C-u" 'uncomment-region)
 (global-set-key [f1]  'help)
 
+;;------------------------ Programacion  --------------------------
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
@@ -167,7 +182,10 @@
                          ()
                          ))
 
-;; Latex editing prefs
+;; Latex
+
+
+;; LaTeX editing prefs
 (add-hook 'tex-mode 'latex-file-handler)
 (defun latex-file-handler ()
   (nb-ide-settings)
@@ -178,6 +196,8 @@
 
 (add-hook 'tex-mode 'autoindent)
 
+
+;; ----------- Reglas de coloreado -----------
 (setq auto-mode-alist
       (append
        '(("\\.C$"    . c++-mode)
@@ -195,7 +215,10 @@
          ("\\.emacs$" . emacs-lisp-mode))
        auto-mode-alist))
 
+
+
 ;; ----- Miscelaneo ----------
+
 ;; Coloreado Sintaxis
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
@@ -206,14 +229,14 @@
 ;; Ilumina el cierre de paréntesis
 (show-paren-mode 1)
 
-;;Resize fond
+;; Resize fond
 ;;(set-face-attribute 
-;;"-outline-Courier New-normal-normal-normal-mono-11-*-*-*-c-*-iso8859-1")
+ ;;    "-outline-Courier New-normal-normal-normal-mono-11-*-*-*-c-*-iso8859-1")
 
-;;AUTOINDENTACIÓN EN C
-;;(c-set-offset 'case-label '+)
-;;AÑADO ENTRADA A LA LISTA DE LOAD-PATHS
-;;(setq loadn-path (cons "~/emacs/" load-path))
+;; AUTOINDENTACIÓN EN C
+;(c-set-offset 'case-label '+)
+;; AÑADO ENTRADA A LA LISTA DE LOAD-PATHS
+;(setq loadn-path (cons "~/emacs/" load-path))
 
 ;; Visualiza hora
 (setq display-time-24hr-format t) ; In 24 hour format
@@ -226,15 +249,17 @@
 ;; Deshabilita el pitido por el altavoz => graficamente
 (setq visible-bell 1)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(display-time-mode t)
- '(package-selected-packages (quote (vue-mode markdown-mode poker ##)))
+ '(package-selected-packages (quote (vue-mode vue-html-mode markdown poker ##)))
  '(show-paren-mode t)
  '(transient-mark-mode t))
+
 
 ;; ------ DIRED SORTING
 
@@ -247,6 +272,17 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
+
+;; load emacs 24's package system. Add MELPA repository.
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+   '("melpa" . "http://melpa.milkbox.net/packages/")
+   t))
+
+
 
 
 (setq vue-mode-packages
@@ -261,3 +297,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(defalias 'list-buffers 'ibuffer) ; make ibuffer de
+
