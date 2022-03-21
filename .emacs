@@ -24,7 +24,6 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -41,6 +40,15 @@
   (add-hook hook (lambda () (flyspell-mode 1))))
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
       (add-hook hook (lambda () (flyspell-mode -1))))
+
+;; Standard Jedi.el setting
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+;; Type:
+;;     M-x el-get-install RET jedi RET
+;;     M-x jedi:install-server RET
+;; Then open Python file.
 
 ;; easy spell check
 (global-set-key (kbd "<f8>") 'ispell-word)
@@ -196,7 +204,6 @@
 
 ;; Latex
 
-
 ;; LaTeX editing prefs
 (add-hook 'tex-mode 'latex-file-handler)
 (defun latex-file-handler ()
@@ -261,24 +268,22 @@
 ;; Deshabilita el pitido por el altavoz => graficamente
 (setq visible-bell 1)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(display-time-mode t)
- '(package-selected-packages (quote (vue-mode vue-html-mode markdown poker ##)))
+ '(package-selected-packages
+   (quote
+    (typescript-mode websocket ein vue-mode vue-html-mode markdown poker ##)))
  '(show-paren-mode t)
  '(transient-mark-mode t))
 
 
 ;; ------ DIRED SORTING
-
 (setq dired-listing-switches "-aBhl --group-directories-first")
-
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-
 
 (require 'package)
 (add-to-list 'package-archives
@@ -294,9 +299,6 @@
    '("melpa" . "http://melpa.milkbox.net/packages/")
    t))
 
-
-
-
 (setq vue-mode-packages
   '(vue-mode))
 (setq vue-mode-excluded-packages '())
@@ -309,7 +311,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 
 (defalias 'list-buffers 'ibuffer) ; make ibuffer de
 
