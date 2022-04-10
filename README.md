@@ -4,6 +4,10 @@ This is a project dedicated to emacs configuration files to help on its configur
 
 The main improvements are related to setup better colours for the back/fore grounds, and also adding more space to your working area. 
 
+Emacs configuration file `.emacs` has to be copied over your home folder to be read by emacs. The configuration file is written in scheme, a lisp dialet.
+
+The first time emacs is started using this configuration file, `el-get` package is installed.
+
 # Cosmetic Changes
 
 In order to change background and foreground colores
