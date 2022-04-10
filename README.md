@@ -2,7 +2,7 @@
 
 This is a project dedicated to emacs configuration files to help on its configuration in order to improve your productivity.
 
-The main improvements are related to setup better colours for the back/fore grounds, adding more space to your working area. 
+The main improvements are related to setup better colours for the back/fore grounds, and also adding more space to your working area. 
 
 # Cosmetic Changes
 
