@@ -1,7 +1,8 @@
 # About this
 
-This is a project dedicated to emacs configuration files. These are tricks on its configuration to improve emacs productivity.
+This is a project dedicated to emacs configuration files to help on its configuration in order to improve your productivity.
 
+The main improvements are related to setup better colours for the back/fore grounds, adding more space to your working area. 
 
 # Cosmetic Changes
 
