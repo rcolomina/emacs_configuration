@@ -1,12 +1,12 @@
 # About this
 
-This is a project dedicated to emacs configuration files to help on its configuration in order to improve your productivity.
+This is dedicated to configuration of emacs in order to customize its behaviour thus increase your productivity.
 
-The main improvements are related to setup better colours for the back/fore grounds, and also adding more space to your working area. 
+The main improvements provided in this repo, are related to the setup of better colours for back/fore grounds, and reconfigure UI addubg more space to your working area. 
 
-Emacs configuration file `.emacs` has to be copied over your home folder to be read by emacs. The configuration file is written in scheme, a lisp dialet.
+Emacs configuration file `.emacs` has to be copied onto your home folder so it can be read by emacs at launch. Notice that this configuration file is written in scheme, which is a lisp dialet.
 
-The first time emacs is started using this configuration file, `el-get` package is installed.
+The first time emacs is started loading the provided configuration file, the `el-get` package will be installed.
 
 # Cosmetic Changes
 
