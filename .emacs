@@ -80,10 +80,7 @@
        (proto (if no-ssl "http" "https")))
 )
 
-(package-initialize)
-
 (require 'cl)
-
 
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
